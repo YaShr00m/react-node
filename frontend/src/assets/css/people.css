@@ -1,0 +1,118 @@
+.people .grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 1fr;
+  gap: 40px;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+@media (max-width: 1200px) {
+  .people .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 768px) {
+  .people .grid {
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+  }
+}
+.people .white_box.tabled {
+  max-height: 100%;
+}
+@media (max-width: 992px) {
+  .people .white_box.tabled:first-child {
+    flex-basis: 30%;
+  }
+  .people .white_box.tabled:last-child {
+    flex-basis: 70%;
+  }
+}
+@media (max-width: 576px) {
+  .people .white_box.tabled {
+    margin-top: -20px !important;
+  }
+}
+.people .white_box.tabled .flex-table {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0 0;
+}
+@media (max-width: 576px) {
+  .people .white_box.tabled .flex-table .flex-header {
+    display: none;
+  }
+  .people .white_box.tabled .flex-table .flex-row {
+    gap: 20px !important;
+    padding: 20px 0;
+    flex-direction: column !important;
+  }
+  .people .white_box.tabled .flex-table .profile-picture {
+    width: 200px !important;
+    height: 200px !important;
+    margin: 0 auto;
+  }
+  .people .white_box.tabled .flex-table .flex-cell {
+    text-align: center;
+  }
+}
+.people .white_box.tabled .flex-header, .people .white_box.tabled .flex-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 20px;
+  transition: 0.2s;
+  border-radius: 5px;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.people .white_box.tabled .flex-row:nth-child(2n) {
+  background: #f9f9f9;
+}
+.people .white_box.tabled .flex-row:hover, .people .white_box.tabled .flex-row.active {
+  background: #0bfea7;
+  cursor: pointer;
+}
+.people .white_box.tabled .flex-cell {
+  flex: 1;
+  padding: 0 8px;
+  white-space: nowrap;
+}
+.people .white_box.tabled .flex-cell:last-child {
+  text-align: right;
+}
+@media (max-width: 576px) {
+  .people .white_box.tabled .flex-cell:last-child {
+    font-size: 20px;
+    text-align: left;
+    font-weight: 600;
+    border-radius: 100%;
+  }
+}
+.people .white_box.tabled .flex-header {
+  font-weight: bold;
+}
+.people .white_box.profile_card .flex {
+  align-items: flex-start;
+  gap: 10px;
+}
+.people .white_box.profile_card .flex img {
+  border-radius: 10px;
+  max-width: 60%;
+  max-height: 50%;
+}
+.people .white_box.profile_card .flex table tr td:first-child {
+  padding-right: 20px;
+}
+.people .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.people .header > span {
+  color: #555;
+}
+
+/*# sourceMappingURL=people.css.map */

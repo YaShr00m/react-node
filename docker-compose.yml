@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  mongo:
+    image: mongo:4.4.10
+    container_name: mongo
+    ports:
+      - '27017:27017'
+    command: ["mongod", "--noauth"]
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./backend
+    container_name: backend
+    ports:
+      - '5000:5000'
+    volumes:
+      - ./backend:/app
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - '3001:3000'
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+
+  mongo-express:
+    image: mongo-express:latest
+    container_name: mongo-express
+    ports:
+      - '8081:8081'
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo
+      - ME_CONFIG_MONGODB_PORT=27017
+    depends_on:
+      - mongo
+
+volumes:
+  mongo-data:

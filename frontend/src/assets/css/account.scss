@@ -1,0 +1,10 @@
+.account {
+  .photo_preview {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 20px auto;
+    display: block;
+  }
+}
